@@ -13,8 +13,8 @@ class Recruiter {
     searchRecruiter(companyname) {
         return recruitmodel.findOne({ companyName: companyname }, { companyId: 1, companyName: 1 }).exec();
     }
-    loginrecruiters(companyname) {
-        return recruitmodel.findOne({ companyName: companyname }).exec();
+    loginrecruiters(username) {
+        return recruitmodel.findOne({ username: companyname }).exec();
     }
     updateRecruiter(id, data) {
         return recruitmodel.findByIdAndUpdate(id, { $set: data }).exec();

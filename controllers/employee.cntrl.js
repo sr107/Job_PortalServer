@@ -50,14 +50,14 @@ const employeecntrl = {
     },
     employeelogin: async function (req, res) {
         try {
-            let employee = await employeesvc.getEmployeelogin(req.body.username);
+            let employee = await employeesvc.getEmployeelogin(req.body.companyName);
             let login = bcrypt.compareSync(req.body.password, employee.password);
             let token = jwt.sign({
-                username: req.body.username, id: employee._id
+                companyName: req.body.companyName, id: employee._id
             }, config.secret, { expiresIn: Math.floor(Date.now() / 1000) + (60 * 60) });
             if (login) {
                 //console.log(token);
-                res.status(200).json({ status: 1, data: { username: req.body.username, token: token } });
+                res.status(200).json({ status: 1, data: { companyName: req.body.companyName, token: token } });
             }
             else {
                 res.status(200).send({ status: 0, data: { message: 'Invalid username/password' } });
@@ -277,4 +277,5 @@ const employeecntrl = {
         }
     }
 }
+
 module.exports = employeecntrl;

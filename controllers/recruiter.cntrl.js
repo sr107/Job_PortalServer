@@ -42,7 +42,7 @@ const recruitercntrl = {
     },
     loginrecruiter: async function (req, res) {
         try {
-            let user = await recruitersvc.loginrecruiters(req.body.companyName);
+            let user = await recruitersvc.loginrecruiters(req.body.username);
             let login = bcrypt.compareSync(req.body.password, user.password);
             let token = jwt.sign({
                 companyName: req.body.companyName, id: user._id

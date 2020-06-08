@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
 const config = require('../config');
 const employeesvc = require('../services/emplyee.svc');
+
+
 let basicAuthorization = {
     basicAuth: function (req, res, next) {
         try {
@@ -66,4 +68,6 @@ let basicAuthorization = {
         }
     }
 }
+
+
 module.exports = basicAuthorization;

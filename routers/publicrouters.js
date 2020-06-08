@@ -6,6 +6,13 @@ const recruitercntrl = require('../controllers/recruiter.cntrl');
 const employeemiddleware = require('../middlewares/middle');
 
 
+//var User = require("../models/employeemodel");
+//var Campground = require("../models/campground");
+//var async = require("async");
+//var nodemailer = require("nodemailer");
+//var crypto = require("crypto");
+
+
 // const storage = multer.diskStorage({
 //   destination: function (req, file, cb) {
 //     cb(null, 'uploads/')
@@ -21,4 +28,6 @@ router.post('/addemployee',employeecntrl.addemployees);
 router.post('/employee/login', employeecntrl.employeelogin);
 router.post('/addrecruiter',recruitercntrl.addrecruiters);
 router.post('/recruiter/login', recruitercntrl.loginrecruiter);
+
+
 module.exports = router;

@@ -17,4 +17,6 @@ const upload = multer({ storage: storage });
 router.get('/employees', employeecntrl.getemployess);
 router.post('/addemployee', upload.single('profileimage'), employeecntrl.addemployees);
 router.post('/employee/login', employeecntrl.employeelogin);
+
 module.exports = router;
+

@@ -1,11 +1,14 @@
 const mongoose = require('mongoose');
+//var passportLocalMongoose = require("passport-local-mongoose");
+//var passportLocalMongoose = require("passport-local-mongoose");
+
 // mongoose.set('useFindAndModify', false);
 const employeeschema = mongoose.Schema({
     username: { type: String, required: [true, 'Username is required'] },
     firstname: { type: String, required: [true, 'First name is required'] },
-    username: { type: String },
+    lastname: { type: String },
     password: { type: String, required: true },
-    mail: { type: String, unique: true },
+    mail: { type: String, unique: true, required: true },
     profileimage: { type: String },
     gender: String,
     mobile: { type: Number, unique: true },
@@ -16,14 +19,19 @@ const employeeschema = mongoose.Schema({
     experience: Number,
     drivertype: String,
     appliedjobs: [String],
-    drivertype: {type: String,required: [true, 'Enter Driver Type'] },
-    cdlStatus: {type: String,required: [true, 'Enter CDL Status'] },
-    dotStatus: {type: String,required: [true, 'Enter DOT Status'] },
-    duiStatus: {type: String,required: [true, 'Enter DUI Status'] },
-    csaStatus: {type: String,required: [true, 'Enter CSA Status'] },
-    accidentsStatus: {type: String,required: [true, 'Fill all mandatory Fields'] },
-    noaccStatus: {type: String,required: [true, 'Fill all mandatory Fields'] },
+ //   resetPasswordToken: String,
+ //   resetPasswordExpires: Date,
+    drivertype: {type: String},
+    cdlStatus: {type: String},
+    dotStatus: {type: String },
+    duiStatus: {type: String },
+    csaStatus: {type: String },
+    accidentsStatus: {type: String },
+    noaccStatus: {type: String},
     loggeddate: { type: Date, default: Date.now() }
 });
+
+//UserSchema.plugin(passportLocalMongoose)
+
 const employeemodel = mongoose.model('jobseekers', employeeschema);
 module.exports = employeemodel;
